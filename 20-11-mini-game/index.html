@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff5f1" />
+  <meta name="description" content="Một món quà 20/11 đặc biệt dành cho cô giáo của anh." />
+  <title>20/11 - Món quà dành riêng cho em</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #583746;
+      --ink-soft: #8e6f7b;
+      --rose: #d86586;
+      --rose-dark: #ad3f65;
+      --rose-pale: #fff1f3;
+      --cream: #fff9f3;
+      --line: #efd9db;
+      --shadow: 0 24px 80px rgba(113, 56, 77, .11);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(ellipse 65% 42% at 7% 9%, #ffe1ea 0, transparent 100%),
+                  radial-gradient(ellipse 40% 45% at 97% 92%, #ffe5d4 0, transparent 100%),
+                  linear-gradient(148deg, #fff9f3, #fff4f7 60%, #fff9f3);
+      overflow-x: hidden;
+    }
+    [hidden] { display: none !important; }
+    button { font: inherit; }
+    button:focus-visible { outline: 3px solid #a14b71; outline-offset: 4px; }
+    .spark-field { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .spark { position: absolute; top: -10vh; width: 13px; height: 18px; border-radius: 80% 6% 80% 6%; opacity: .4; background: #eeadc2; filter: blur(.1px); animation: drift linear infinite; }
+    .spark:nth-child(1) { left: 7%; animation-duration: 14s; animation-delay: -4s; transform: rotate(22deg); }
+    .spark:nth-child(2) { left: 24%; animation-duration: 19s; animation-delay: -14s; background: #f5c7a9; }
+    .spark:nth-child(3) { left: 40%; animation-duration: 17s; animation-delay: -9s; }
+    .spark:nth-child(4) { left: 62%; animation-duration: 22s; animation-delay: -17s; background: #e2c7ef; }
+    .spark:nth-child(5) { left: 82%; animation-duration: 15s; animation-delay: -6s; }
+    .spark:nth-child(6) { left: 95%; animation-duration: 21s; animation-delay: -2s; background: #f0cda1; }
+    @keyframes drift { from { translate: 0 -15vh; rotate: 0deg; } to { translate: 65px 120vh; rotate: 300deg; } }
+    .layout { position: relative; z-index: 1; max-width: 1110px; margin: 0 auto; padding: 23px 24px 80px; }
+    .site-top { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 42px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; color: var(--rose-dark); font-size: 12px; font-weight: 800; letter-spacing: .16em; }
+    .brand-mark { display: inline-grid; place-items: center; width: 33px; height: 33px; border-radius: 50%; background: #ffdee8; font-size: 17px; }
+    .top-chip { border: 1px solid #f0d5d9; background: #fffafabb; border-radius: 100px; padding: 9px 14px; color: #8c6070; font-size: 12px; font-weight: 650; }
+    .hero { text-align: center; margin: 0 auto 35px; max-width: 780px; }
+    .eyebrow { color: var(--rose-dark); text-transform: uppercase; font-size: 12px; font-weight: 800; letter-spacing: .2em; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: clamp(36px, 5.5vw, 70px); line-height: 1.12; letter-spacing: -.035em; margin: 15px 0 16px; }
+    h1 span { color: var(--rose); font-style: italic; }
+    .hero-copy { font-size: clamp(15px, 1.8vw, 18px); line-height: 1.8; color: var(--ink-soft); max-width: 580px; margin: auto; }
+    .postcard { position: relative; overflow: hidden; border: 1px solid #f4d7dc; border-radius: 28px; padding: 25px; background: linear-gradient(155deg, #fffdfb 0%, #fff6f7 100%); box-shadow: var(--shadow); }
+    .postcard::before, .postcard::after { position: absolute; font-size: 90px; opacity: .12; pointer-events: none; }
+    .postcard::before { content: '✿'; top: -25px; left: -14px; color: #d66083; }
+    .postcard::after { content: '✿'; bottom: -54px; right: -18px; color: #d66083; }
+    .board-header { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+    .section-title { margin: 0; font-size: 18px; letter-spacing: -.01em; }
+    .section-subtitle { margin: 5px 0 0; font-size: 13px; color: var(--ink-soft); }
+    .stamp { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 100px; background: #fce7ed; color: #aa536e; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .mystery-prize { border: 1px solid #f0ccd8; border-radius: 20px; padding: 22px 24px; background: radial-gradient(circle at 16% 20%, #ffe2ea 0, transparent 44%), linear-gradient(115deg, #fff2f5, #fffaf5); display: flex; align-items: center; justify-content: center; gap: 19px; text-align: left; }
+    .mystery-icon { display: grid; place-items: center; width: 71px; height: 71px; flex: 0 0 71px; border-radius: 22px; background: #fff; box-shadow: 0 8px 22px #c67b8b1c; font-size: 39px; transform: rotate(-6deg); }
+    .mystery-copy { min-width: 0; }
+    .mystery-label { display: block; color: #9c6176; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 5px; }
+    .mystery-value { display: block; font-family: Georgia, 'Times New Roman', serif; color: #b44b70; font-size: clamp(29px, 4vw, 43px); font-weight: 800; letter-spacing: -.025em; line-height: 1.15; }
+    .mystery-note { display: block; color: #94717c; font-size: 13px; line-height: 1.6; margin-top: 7px; }
+    .divider { margin: 25px 0 28px; height: 1px; background: linear-gradient(90deg, transparent, #ecd2d7 20%, #ecd2d7 80%, transparent); }
+    .game-heading { text-align: center; }
+    .game-heading h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(24px, 3.2vw, 35px); margin: 0 0 8px; }
+    .game-heading p { margin: 0; line-height: 1.6; color: var(--ink-soft); font-size: 14px; }
+    .mode-picker { display: flex; justify-content: center; flex-wrap: wrap; gap: 11px; margin-top: 22px; }
+    .mode-button { min-height: 47px; padding: 11px 18px; border: 1px solid #e8c7d0; border-radius: 13px; background: #fff; color: #9b4c67; font-weight: 800; cursor: pointer; transition: transform .2s, background .2s, box-shadow .2s; }
+    .mode-button:hover { transform: translateY(-2px); background: #fff0f4; box-shadow: 0 8px 20px #d3688920; }
+    .gift-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; margin-top: 26px; }
+    .gift-button { --box:#f09bb6; --lid:#db7195; --ribbon:#fff8e5; width: 100%; min-width: 0; min-height: 172px; padding: 18px 4px 15px; border: 1.5px solid #efd3dc; border-radius: 21px; background: linear-gradient(180deg, #fff 0%, #fff4f6 100%); cursor: pointer; color: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; position: relative; box-shadow: 0 6px 18px #ac6b8110; transition: transform .25s, box-shadow .25s, border-color .25s, opacity .25s; -webkit-tap-highlight-color: transparent; }
+    .gift-button:hover:not(:disabled) { transform: translateY(-7px); border-color: var(--rose); box-shadow: 0 16px 32px #be718a26; }
+    .gift-button:active:not(:disabled) { transform: translateY(-1px) scale(.96); }
+    .gift-button:disabled { cursor: default; }
+    .gift-button .gift-svg { width: min(100%, 116px); overflow: visible; filter: drop-shadow(0 9px 10px #a2647822); transition: transform .25s; }
+    .gift-button:hover:not(:disabled) .gift-svg { transform: rotate(-5deg) scale(1.08); }
+    .gift-button svg .gift-box-main { fill: var(--box); }
+    .gift-button svg .gift-lid { fill: var(--lid); transform-origin: 50% 42%; }
+    .gift-button svg .gift-bow { fill: none; stroke: var(--lid); }
+    .gift-button svg .gift-ribbon { fill: var(--ribbon); }
+    .gift-name { font-size: 12px; font-weight: 800; letter-spacing: .06em; }
+    .gift-action { color: #a97a89; font-size: 11px; }
+    .gift-button.dimmed { opacity: .40; transform: scale(.97); }
+    .gift-button.chosen { border-color: #df8aa3; background: #fff0f4; z-index: 1; }
+    .gift-button.roulette-active { transform: scale(1.05); border-color: #c45d7f; background: #ffe4eb; box-shadow: 0 0 0 4px #d865862b, 0 14px 28px #be718a30; z-index: 2; }
+    .gift-button.opening { animation: shake .55s ease-in-out 2; }
+    .gift-button.opening svg .gift-lid { animation: open-lid 1.1s .52s ease-out forwards; }
+    .gift-button.opening .gift-svg { animation: bounce 1.1s ease-in-out; }
+    @keyframes shake { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-6deg); } 40% { transform: rotate(6deg); } 65% { transform: rotate(-3deg); } 80% { transform: rotate(3deg); } }
+    @keyframes open-lid { 0% { translate: 0 0; rotate: 0deg; opacity: 1; } 55% { translate: 1px -30px; rotate: -11deg; opacity: 1; } 100% { translate: 10px -44px; rotate: -18deg; opacity: .15; } }
+    @keyframes bounce { 50% { scale: 1.13; } }
+    .bottom-note { display: flex; justify-content: center; align-items: center; gap: 9px; color: #91727c; text-align: center; font-size: 12px; line-height: 1.5; margin-top: 22px; }
+    .tiny-heart { color: #d16689; font-size: 17px; }
+    .footer { text-align: center; color: #a8838e; font-size: 12px; line-height: 1.8; margin-top: 25px; }
+    .footer strong { color: var(--rose-dark); }
+    .result-overlay { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 20px; background: rgba(67,34,51,.53); backdrop-filter: blur(9px); }
+    .result-card { width: min(100%, 455px); max-height: min(94vh, 810px); overflow-y: auto; text-align: center; border-radius: 28px; border: 1px solid #ffe9ee; background: radial-gradient(circle at 50% 0%, #fff2dd, transparent 43%), #fffaf8; box-shadow: 0 28px 120px #2e17264d; padding: 31px 27px 28px; position: relative; animation: result-in .45s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes result-in { from { opacity: 0; scale: .85; transform: translateY(30px); } to { opacity: 1; scale: 1; transform: translateY(0); } }
+    .result-star { font-size: 43px; line-height: 1.3; }
+    .result-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .2em; font-weight: 800; color: #ad6478; margin: 5px 0 9px; }
+    .result-card h2 { font-family: Georgia, "Times New Roman", serif; font-size: 35px; line-height: 1.2; margin: 0 0 12px; }
+    .prize { font-size: clamp(57px, 13vw, 86px); line-height: 1.1; letter-spacing: -.08em; color: #b94f73; font-weight: 900; margin: 16px 0; }
+    .prize.wish-prize { font-size: clamp(30px, 8vw, 43px); letter-spacing: -.03em; }
+    .prize small { font-size: 24px; letter-spacing: -.02em; }
+    .result-body { color: #876876; line-height: 1.75; margin: 9px auto 19px; max-width: 315px; font-size: 15px; }
+    .voucher-info { display: flex; justify-content: space-between; gap: 8px; padding: 13px 14px; border: 1px dashed #e9c4cd; background: #fff3f4; border-radius: 12px; font-size: 11px; color: #946977; }
+    .voucher-info span { overflow-wrap: anywhere; }
+    .result-actions { display: grid; gap: 9px; margin-top: 17px; }
+    .primary-action, .secondary-action { border: 0; min-height: 47px; padding: 12px 18px; border-radius: 13px; font-weight: 800; cursor: pointer; }
+    .primary-action { background: #c45d7f; color: white; box-shadow: 0 8px 20px #d3688940; }
+    .primary-action:hover { background: #ab476a; }
+    .secondary-action { background: #fce9ed; color: #9b4c67; }
+    .secondary-action:hover { background: #f6dbe2; }
+    .secondary-action:disabled { opacity: .65; cursor: default; }
+    .result-hint { color: #b08e96; font-size: 11px; line-height: 1.5; margin: 14px 0 0; }
+    #confettiCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 30; width: 100vw; height: 100vh; }
+    .intro-screen { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; padding: 22px; background: radial-gradient(ellipse 70% 55% at 50% 0%, #ffe1ea 0, transparent 100%), linear-gradient(148deg, #fff9f3, #fff1f5 62%, #fff8f1); }
+    .intro-card { width: min(100%, 440px); padding: 38px 32px 32px; text-align: center; border: 1px solid #f1d4dc; border-radius: 28px; background: linear-gradient(155deg, #fffdfb, #fff5f7); box-shadow: 0 24px 80px rgba(113,56,77,.16); animation: result-in .55s cubic-bezier(.2,.8,.2,1) both; }
+    .intro-icon { display: grid; place-items: center; width: 70px; height: 70px; margin: 0 auto 18px; border-radius: 23px; background: #ffe5ec; color: var(--rose-dark); font-size: 32px; transform: rotate(-6deg); }
+    .intro-eyebrow { margin: 0; color: var(--rose-dark); font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+    .intro-card h1 { margin: 12px 0 10px; font-size: clamp(34px, 8vw, 46px); }
+    .intro-copy { margin: 0 auto 23px; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
+    .intro-form { display: grid; gap: 11px; text-align: left; }
+    .intro-form label { color: #8e6171; font-size: 12px; font-weight: 750; }
+    .intro-form input { width: 100%; min-height: 49px; padding: 0 15px; border: 1px solid #e9cbd4; border-radius: 13px; background: #fff; color: var(--ink); font: inherit; outline: none; }
+    .intro-form input:focus { border-color: var(--rose); box-shadow: 0 0 0 3px #d8658622; }
+    .intro-form input::placeholder { color: #bd9eaa; }
+    .intro-submit { min-height: 49px; margin-top: 3px; border: 0; border-radius: 13px; background: #c45d7f; color: #fff; font-weight: 800; cursor: pointer; box-shadow: 0 8px 20px #d3688940; }
+    .intro-submit:hover { background: #ab476a; }
+    .intro-error { min-height: 20px; margin: 0; color: #b43e5c; font-size: 12px; text-align: center; }
+    .intro-signoff { margin: 12px 0 0; color: #aa8490; font-size: 12px; }
+    @media (max-width: 760px) {
+      .layout { padding: 18px 16px 38px; }
+      .site-top { margin-bottom: 34px; }
+      .hero { margin-bottom: 28px; }
+      .postcard { padding: 20px 16px 24px; border-radius: 22px; }
+      .mystery-prize { padding: 18px 16px; gap: 14px; }
+      .mystery-icon { width: 61px; height: 61px; flex-basis: 61px; font-size: 33px; }
+      .gift-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 9px; margin-top: 20px; }
+      .gift-button { min-height: 151px; border-radius: 17px; padding: 12px 4px; }
+      .gift-button .gift-svg { width: min(100%, 95px); }
+      .divider { margin: 23px 0 22px; }
+    }
+    @media (max-width: 480px) { .top-chip { display: none; } }
+    @media (max-width: 380px) {
+      .layout { padding: 15px 11px 35px; }
+      .postcard { padding: 19px 11px; }
+      .top-chip { display: none; }
+      .mystery-prize { padding: 16px 12px; gap: 11px; }
+      .mystery-icon { width: 49px; height: 49px; flex-basis: 49px; font-size: 27px; border-radius: 15px; }
+      .mystery-value { font-size: 28px; }
+      .gift-grid { gap: 7px; }
+      .gift-button { min-height: 137px; }
+      .gift-name { font-size: 11px; }
+      .gift-action { font-size: 10px; }
+      .result-card { padding: 23px 17px 20px; }
+      .intro-card { padding: 32px 23px 26px; border-radius: 23px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .spark-field { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="spark-field" aria-hidden="true"><span class="spark"></span><span class="spark"></span><span class="spark"></span><span class="spark"></span><span class="spark"></span><span class="spark"></span></div>
+  <section id="introScreen" class="intro-screen" aria-labelledby="introTitle">
+    <div class="intro-card">
+      <div class="intro-icon" aria-hidden="true">💌</div>
+      <p class="intro-eyebrow">Một tấm thiệp nhỏ dành riêng</p>
+      <h1 id="introTitle"><span>Tạ Thu Trang</span></h1>
+      <p class="intro-copy">Có một điều bất ngờ đang chờ em. Nhập mật khẩu để mở tấm thiệp nhé! ♡</p>
+      <form id="introForm" class="intro-form">
+        <label for="introPassword">Mật khẩu</label>
+        <input id="introPassword" name="password" type="password" placeholder="Nhập mật khẩu của em" autocomplete="off" required />
+        <button class="intro-submit" type="submit">Mở thiệp ♥</button>
+        <p id="introError" class="intro-error" role="alert" aria-live="polite"></p>
+      </form>
+      <p class="intro-signoff">Gửi em, bằng tất cả yêu thương ♡</p>
+    </div>
+  </section>
+  <main class="layout" hidden>
+    <header class="site-top">
+      <div class="brand"><span class="brand-mark">♥</span> 20.11 · GỬI CÔ GIÁO</div>
+      <div class="top-chip">Một điều bất ngờ dành riêng cho em ✨</div>
+    </header>
+    <section class="hero" aria-labelledby="headline">
+      <div class="eyebrow">Happy Vietnamese Teachers' Day</div>
+      <h1 id="headline">Hôm nay, cô giáo<br/><span>được nhận yêu thương.</span></h1>
+      <p class="hero-copy">Cảm ơn em vì đã dành sự dịu dàng cho những bài học, và dành một góc nhỏ trong trái tim cho anh. Hôm nay, hãy chọn cách khám phá điều bất ngờ đang chờ em nhé!</p>
+    </section>
+    <section class="postcard" aria-label="Mini-game bí mật 20/11">
+      <div class="board-header">
+        <div><h2 class="section-title">Bí mật dành riêng cho em</h2><p class="section-subtitle">Không ai biết trước chiếc hộp nào đang chờ được mở</p></div>
+        <span class="stamp">♡ 20 tháng 11</span>
+      </div>
+      <div class="mystery-prize" aria-label="Một điều bất ngờ đang chờ em">
+        <span class="mystery-icon" aria-hidden="true">✨</span>
+        <div class="mystery-copy">
+          <span class="mystery-label">MỘT ĐIỀU BÍ MẬT</span>
+          <strong class="mystery-value">DÀNH RIÊNG CHO EM</strong>
+          <span class="mystery-note">Chọn chiếc hộp em thích để khám phá nhé.</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="game-heading"><h2>Một trong 12 chiếc hộp này... ♡</h2><p id="gameStatus" aria-live="polite">Chọn cách chơi: bốc ngẫu nhiên hoặc tự chọn một chiếc hộp nhé!</p></div>
+      <div id="modePicker" class="mode-picker" aria-label="Chọn cách chơi">
+        <button id="randomModeBtn" class="mode-button" type="button">✨ Bốc ngẫu nhiên</button>
+        <button id="manualModeBtn" class="mode-button" type="button">🎁 Tự chọn hộp</button>
+      </div>
+      <div id="giftGrid" class="gift-grid" aria-label="12 hộp quà" hidden></div>
+      <div class="bottom-note"><span class="tiny-heart">♥</span> <span>Mỗi hộp cất giấu một điều đặc biệt, chỉ dành riêng cho em.</span></div>
+    </section>
+    <footer class="footer">Một điều đặc biệt gửi <strong id="receiverName">cô giáo của anh</strong> — từ người luôn tự nguyện làm học trò của em. ♡</footer>
+  </main>
+  <div id="resultOverlay" class="result-overlay" hidden>
+    <section class="result-card" role="dialog" aria-modal="true" aria-labelledby="resultTitle" aria-describedby="resultBody">
+      <div class="result-star" aria-hidden="true">🎁 ✨</div>
+      <p class="result-eyebrow">Bất ngờ đã được mở</p>
+      <h2 id="resultTitle">Quà của cô giáo đây!</h2>
+      <div id="prizeAmount" class="prize" aria-live="polite">?<small>K</small></div>
+      <p id="resultBody" class="result-body">Một chút yêu thương từ anh. Chúc cô giáo của anh ngày 20/11 thật vui, thật dịu dàng và luôn được trân trọng.</p>
+      <div class="voucher-info"><span id="voucherId">Mã quà: LOVE-2011</span><span id="voucherDate"></span></div>
+      <div class="result-actions">
+        <button class="secondary-action" id="rerollBtn" type="button">↻ Chọn lại món quà (còn 3 lượt)</button>
+        <button class="primary-action" id="downloadBtn" type="button">↓ Lưu phiếu quà thành ảnh</button>
+        <button class="secondary-action" id="closeBtn" type="button">♥ Đóng và ngắm lại</button>
+      </div>
+      <p class="result-hint">Phiếu quà là lời hẹn của hai người. Không tự chuyển tiền hay gửi dữ liệu ra ngoài.</p>
+    </section>
+  </div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+  <script>
+    "use strict";
+    // ==================== CHỈNH CẤU HÌNH TẠI ĐÂY ====================
+    const CONFIG = Object.freeze({
+      receiver: "cô giáo của anh",
+      storageKey: "teacher-day-2026-love-gift-v2"
+    });
+    // ===============================================================
+    const MAX_REROLLS = 3;
+    const giftOutcomes = [
+      { type: "money", amount: 50000, message: "Em vừa nhận một chiếc phiếu quà 50.000đ và thật nhiều yêu thương từ anh." },
+      { type: "money", amount: 100000, message: "Chúc mừng cô giáo đáng yêu! Em vừa nhận một chiếc phiếu quà 100.000đ." },
+      { type: "money", amount: 50000, message: "Một món quà nhỏ gửi đến người luôn làm anh mỉm cười." },
+      { type: "wish", message: "Mong em luôn giữ nụ cười rạng rỡ và nhận được thật nhiều yêu thương." },
+      { type: "money", amount: 100000, message: "Một món quà 100.000đ dành tặng cô giáo đặc biệt nhất trong lòng anh." },
+      { type: "money", amount: 50000, message: "Tặng em món quà nhỏ, kèm theo một cái ôm thật dịu dàng." },
+      { type: "wish", message: "Chúc những ngày đến lớp của em luôn vui, nhẹ nhàng và đầy cảm hứng." },
+      { type: "money", amount: 100000, message: "Phiếu quà 100.000đ dành riêng cho em, cùng lời cảm ơn vì luôn dịu dàng." },
+      { type: "money", amount: 50000, message: "Món quà 50.000đ này thay anh gửi một lời thương thật lớn." },
+      { type: "money", amount: 100000, message: "Em xứng đáng với món quà 100.000đ và được yêu thương mỗi ngày." },
+      { type: "wish", message: "Mong mọi điều tốt đẹp sẽ nhẹ nhàng tìm đến em, hôm nay và mỗi ngày sau đó." },
+      { type: "money", amount: 50000, message: "Chúc em một ngày 20/11 thật vui với món quà nhỏ từ anh." }
+    ];
+    const giftColors = [
+      ["#f2a3b7", "#d97394"], ["#d5baf4", "#ad88dc"], ["#f3c597", "#df9b6b"],
+      ["#a6dfd2", "#65b7a9"], ["#ffc7c8", "#e891a1"], ["#b5c9f3", "#829fd8"],
+      ["#f0b9dc", "#d982b9"], ["#b8d7a2", "#86b86a"], ["#f2d28f", "#d9ad54"],
+      ["#f3a98f", "#dc8068"], ["#9ec9e8", "#6da6cc"], ["#d6b7a0", "#b58b70"]
+    ];
+    const giftGrid = document.getElementById("giftGrid");
+    const gameStatus = document.getElementById("gameStatus");
+    const modePicker = document.getElementById("modePicker");
+    const randomModeBtn = document.getElementById("randomModeBtn");
+    const manualModeBtn = document.getElementById("manualModeBtn");
+    const overlay = document.getElementById("resultOverlay");
+    const closeBtn = document.getElementById("closeBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const rerollBtn = document.getElementById("rerollBtn");
+    const introScreen = document.getElementById("introScreen");
+    const introForm = document.getElementById("introForm");
+    const introPassword = document.getElementById("introPassword");
+    const introError = document.getElementById("introError");
+    const INTRO_PASSWORD = "yeuanh";
+    const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let opening = false;
+    let failedPasswordAttempts = 0;
+    let currentGift = readSavedGift();
+    let lastFocusedButton = null;
+
+    function giftSVG() {
+      return `<svg class="gift-svg" viewBox="0 0 120 116" aria-hidden="true" focusable="false">
+        <ellipse cx="60" cy="103" rx="41" ry="6" fill="#7e5061" opacity=".1"/>
+        <rect class="gift-box-main" x="26" y="49" width="68" height="53" rx="6"/>
+        <path class="gift-ribbon" d="M55 49h10v53H55z"/>
+        <g class="gift-lid"><rect x="20" y="38" width="80" height="17" rx="5"/><path class="gift-ribbon" d="M55 38h10v17H55z"/>
+          <path class="gift-bow" d="M60 38C40 37 31 33 35 24c5-12 21 1 25 14Zm0 0c20-1 29-5 25-14-5-12-21 1-25 14Z" stroke-width="6" stroke-linejoin="round"/>
+        </g>
+      </svg>`;
+    }
+    function buildBoxes() {
+      giftGrid.innerHTML = "";
+      giftColors.forEach(([box, lid], index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "gift-button";
+        button.style.setProperty("--box", box);
+        button.style.setProperty("--lid", lid);
+        button.dataset.box = String(index);
+        button.setAttribute("aria-label", `Chọn hộp quà số ${index + 1}`);
+        button.innerHTML = `${giftSVG()}<span class="gift-name">HỘP ${String(index+1).padStart(2,"0")}</span><span class="gift-action">Chạm để mở ♥</span>`;
+        button.addEventListener("click", () => openGift(index, button));
+        giftGrid.appendChild(button);
+      });
+      if (currentGift) {
+        modePicker.hidden = true;
+        giftGrid.hidden = false;
+        applyAlreadyDrawnState();
+      }
+    }
+    function uniformRandomIndex(maxExclusive) {
+      // Tránh modulo bias ngay cả khi danh sách giải thưởng thay đổi.
+      if (!Number.isSafeInteger(maxExclusive) || maxExclusive < 1) throw new Error("Invalid draw pool");
+      const max = 0x100000000;
+      const threshold = max - (max % maxExclusive);
+      const bytes = new Uint32Array(1);
+      do { crypto.getRandomValues(bytes); } while (bytes[0] >= threshold);
+      return bytes[0] % maxExclusive;
+    }
+    function readSavedGift() {
+      try {
+        const data = JSON.parse(localStorage.getItem(CONFIG.storageKey) || "null");
+        if (data && Number.isInteger(data.outcomeIndex) && data.outcomeIndex >= 0 && data.outcomeIndex < giftOutcomes.length &&
+          Number.isInteger(data.box) && data.box >= 0 && data.box < giftOutcomes.length && typeof data.code === "string") {
+          data.rerollsUsed = Number.isInteger(data.rerollsUsed) ? Math.min(MAX_REROLLS, Math.max(0, data.rerollsUsed)) : 0;
+          return data;
+        }
+      } catch (_) { /* Có thể bị chặn localStorage trên một số trình duyệt */ }
+      return null;
+    }
+    function saveGift(value) {
+      try { localStorage.setItem(CONFIG.storageKey, JSON.stringify(value)); return true; }
+      catch (_) { return false; }
+    }
+    function applyAlreadyDrawnState() {
+      [...giftGrid.children].forEach((btn, idx) => {
+        btn.disabled = true;
+        btn.classList.toggle("chosen", idx === currentGift.box);
+        btn.classList.toggle("dimmed", idx !== currentGift.box);
+        btn.querySelector(".gift-action").textContent = idx === currentGift.box ? "Đã nhận quà ♥" : "Đã khóa";
+      });
+      gameStatus.textContent = `Em đã nhận quà từ hộp ${currentGift.box + 1} rồi! Nhấn nút bên dưới để xem lại nhé.`;
+      let review = document.getElementById("reviewBtn");
+      if (!review) {
+        review = document.createElement("button");
+        review.id = "reviewBtn";
+        review.type = "button";
+        review.className = "secondary-action";
+        review.style.cssText = "display:block;margin:17px auto 0;max-width:240px;width:100%";
+        review.textContent = "♥ Xem lại món quà";
+        review.addEventListener("click", showResult);
+        giftGrid.after(review);
+      }
+    }
+    function openGift(index, button) {
+      if (opening || currentGift) return;
+      opening = true;
+      lastFocusedButton = button;
+      const code = `LOVE-2011-${String(uniformRandomIndex(10000)).padStart(4,"0")}`;
+      currentGift = { outcomeIndex: index, box: index, code, timestamp: new Date().toISOString(), rerollsUsed: 0 };
+      const persisted = saveGift(currentGift);
+      [...giftGrid.children].forEach((btn, idx) => { btn.disabled = true; btn.classList.toggle("dimmed", idx !== index); });
+      button.classList.add("chosen", "opening");
+      gameStatus.textContent = "Hộp quà đang mở... điều bất ngờ sắp xuất hiện!";
+      const delay = prefersReducedMotion ? 120 : 1700;
+      window.setTimeout(() => {
+        button.classList.remove("opening");
+        applyAlreadyDrawnState();
+        showResult();
+        if (!persisted) document.querySelector(".result-hint").textContent = "Trình duyệt đang chặn lưu dữ liệu: kết quả có thể mất khi tải lại trang.";
+        opening = false;
+      }, delay);
+    }
+    function showResult() {
+      if (!currentGift) return;
+      const outcome = giftOutcomes[currentGift.outcomeIndex];
+      const amount = document.getElementById("prizeAmount");
+      amount.classList.toggle("wish-prize", outcome.type === "wish");
+      amount.textContent = outcome.type === "money" ? `${outcome.amount / 1000}K` : "LỜI CHÚC";
+      document.getElementById("voucherId").textContent = `Mã quà: ${currentGift.code}`;
+      const date = new Date(currentGift.timestamp);
+      document.getElementById("voucherDate").textContent = Number.isNaN(date.getTime()) ? "20/11" : date.toLocaleDateString("vi-VN");
+      document.getElementById("resultTitle").textContent = outcome.type === "wish" ? "Một lời chúc dành riêng cho em ♡" : "Quà của cô giáo đây!";
+      document.getElementById("resultBody").textContent = outcome.message;
+      const rerollsLeft = MAX_REROLLS - currentGift.rerollsUsed;
+      rerollBtn.disabled = rerollsLeft === 0;
+      rerollBtn.textContent = rerollsLeft > 0
+        ? `↻ Chọn lại món quà (còn ${rerollsLeft} lượt)`
+        : "Đã dùng hết 3 lượt chọn lại";
+      overlay.hidden = false;
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+      if (!prefersReducedMotion) launchConfetti();
+    }
+    function rerollGift() {
+      if (!currentGift || currentGift.rerollsUsed >= MAX_REROLLS) return;
+      const alternatives = giftOutcomes.map((_, index) => index).filter(index => index !== currentGift.outcomeIndex);
+      currentGift = {
+        ...currentGift,
+        outcomeIndex: alternatives[uniformRandomIndex(alternatives.length)],
+        code: `LOVE-2011-${String(uniformRandomIndex(10000)).padStart(4,"0")}`,
+        timestamp: new Date().toISOString(),
+        rerollsUsed: currentGift.rerollsUsed + 1
+      };
+      const persisted = saveGift(currentGift);
+      showResult();
+      if (!persisted) document.querySelector(".result-hint").textContent = "Trình duyệt đang chặn lưu dữ liệu: lượt chọn lại có thể mất khi tải lại trang.";
+    }
+    function chooseManualMode() {
+      if (currentGift || opening) return;
+      modePicker.hidden = true;
+      giftGrid.hidden = false;
+      gameStatus.textContent = "Hãy chọn một trong 12 chiếc hộp nhé. Điều bất ngờ sẽ được bật mí ngay sau đó!";
+      giftGrid.querySelector("button")?.focus();
+    }
+    function startRandomDraw() {
+      if (currentGift || opening) return;
+      modePicker.hidden = true;
+      giftGrid.hidden = false;
+      opening = true;
+      gameStatus.textContent = "Đang bốc thăm... hộp quà may mắn sắp được chọn!";
+      const buttons = [...giftGrid.querySelectorAll(".gift-button")];
+      buttons.forEach(button => { button.disabled = true; });
+      const winningIndex = uniformRandomIndex(giftOutcomes.length);
+      if (prefersReducedMotion) {
+        buttons[winningIndex].classList.add("roulette-active");
+        window.setTimeout(() => {
+          buttons[winningIndex].classList.remove("roulette-active");
+          buttons.forEach(button => { button.disabled = false; });
+          opening = false;
+          openGift(winningIndex, buttons[winningIndex]);
+        }, 120);
+        return;
+      }
+      const spins = Array.from({ length: 18 }, () => uniformRandomIndex(giftOutcomes.length));
+      spins.push(winningIndex);
+      let step = 0;
+      function spin() {
+        buttons.forEach(button => { button.classList.remove("roulette-active"); });
+        const activeButton = buttons[spins[step]];
+        activeButton.classList.add("roulette-active");
+        step++;
+        if (step === spins.length) {
+          window.setTimeout(() => {
+            activeButton.classList.remove("roulette-active");
+            buttons.forEach(button => { button.disabled = false; });
+            opening = false;
+            openGift(winningIndex, activeButton);
+          }, 320);
+          return;
+        }
+        window.setTimeout(spin, 45 + step * 7);
+      }
+      spin();
+    }
+    function closeResult() {
+      overlay.hidden = true;
+      document.body.style.overflow = "";
+      if (lastFocusedButton && !lastFocusedButton.disabled) lastFocusedButton.focus();
+      else document.getElementById("reviewBtn")?.focus();
+    }
+    closeBtn.addEventListener("click", closeResult);
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && !overlay.hidden) closeResult();
+      if (e.key === "Tab" && !overlay.hidden) {
+        const controls = [rerollBtn, downloadBtn, closeBtn].filter(button => !button.disabled);
+        if (e.shiftKey && document.activeElement === controls[0]) { e.preventDefault(); controls[controls.length - 1].focus(); }
+        else if (!e.shiftKey && document.activeElement === controls[controls.length - 1]) { e.preventDefault(); controls[0].focus(); }
+      }
+    });
+    overlay.addEventListener("click", e => { if (e.target === overlay) closeResult(); });
+
+    function launchConfetti() {
+      const canvas = document.getElementById("confettiCanvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = window.innerWidth, h = window.innerHeight;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const colors = ["#e87f9f", "#f5bf7d", "#e8b9dc", "#fff6e0", "#bd8dd5", "#ed9eaa"];
+      const pieces = Array.from({ length: Math.min(95, Math.floor(w / 5)) }, (_, i) => ({
+        x: w / 2 + (Math.random() - .5) * 90, y: h / 2 - 130,
+        vx: (Math.random() - .5) * 13, vy: -Math.random() * 11 - 1,
+        gravity: .16 + Math.random() * .09, rotation: Math.random() * 6,
+        vr: (Math.random() - .5) * .16, size: 4 + Math.random() * 5,
+        color: colors[i % colors.length]
+      }));
+      const start = performance.now();
+      function frame(now) {
+        ctx.clearRect(0, 0, w, h);
+        pieces.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.vy += p.gravity; p.vx *= .991; p.rotation += p.vr;
+          ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rotation); ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*.65); ctx.restore();
+        });
+        if (now - start < 2500) requestAnimationFrame(frame);
+        else ctx.clearRect(0, 0, w, h);
+      }
+      requestAnimationFrame(frame);
+    }
+    function roundedRect(ctx, x, y, w, h, radius) {
+      ctx.beginPath(); ctx.roundRect(x, y, w, h, radius); ctx.fill();
+    }
+    function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight) {
+      const lines = [];
+      let line = "";
+      text.split(/\s+/).forEach(word => {
+        const candidate = line ? `${line} ${word}` : word;
+        if (line && ctx.measureText(candidate).width > maxWidth) {
+          lines.push(line);
+          line = word;
+        } else {
+          line = candidate;
+        }
+      });
+      if (line) lines.push(line);
+      lines.forEach((value, index) => ctx.fillText(value, x, y + index * lineHeight));
+    }
+    function downloadVoucher() {
+      if (!currentGift) return;
+      const outcome = giftOutcomes[currentGift.outcomeIndex];
+      const c = document.createElement("canvas");
+      c.width = 1080; c.height = 1350;
+      const ctx = c.getContext("2d");
+      if (!ctx) return;
+      const background = ctx.createLinearGradient(0, 0, 1080, 1350);
+      background.addColorStop(0, "#fff0f3"); background.addColorStop(.55, "#fffaf3"); background.addColorStop(1, "#fbe4eb");
+      ctx.fillStyle = background; ctx.fillRect(0, 0, 1080, 1350);
+      ctx.fillStyle = "#f6c5d4"; ctx.beginPath(); ctx.arc(-50, 120, 250, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = "#f5d5d9"; ctx.beginPath(); ctx.arc(1060, 1300, 350, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = "#ffffff"; roundedRect(ctx, 75, 85, 930, 1180, 42);
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#b25374"; ctx.font = "bold 33px Arial"; ctx.fillText("♡  20 / 11  ♡", 540, 215);
+      ctx.fillStyle = "#633e4c"; ctx.font = "bold 65px Georgia"; ctx.fillText("PHIẾU QUÀ YÊU THƯƠNG", 540, 355);
+      ctx.fillStyle = "#a66c80"; ctx.font = "30px Arial"; ctx.fillText("Gửi đến cô giáo đặc biệt của anh", 540, 420);
+      ctx.fillStyle = "#fbe3e9"; roundedRect(ctx, 185, 520, 710, 270, 30);
+      ctx.fillStyle = "#b44d73";
+      ctx.font = outcome.type === "money" ? "bold 145px Arial" : "bold 54px Arial";
+      ctx.fillText(outcome.type === "money" ? `${outcome.amount / 1000}K` : "MỘT LỜI CHÚC", 540, 705);
+      ctx.fillStyle = "#765763"; ctx.font = "30px Arial";
+      if (outcome.type === "money") {
+        ctx.fillText("Một món quà nhỏ, một lời yêu thật lớn.", 540, 888);
+        ctx.fillText("Chúc cô giáo của anh ngày 20/11 thật vui!", 540, 944);
+      } else {
+        drawWrappedText(ctx, outcome.message, 540, 865, 710, 38);
+      }
+      ctx.strokeStyle = "#e8bdca"; ctx.setLineDash([12, 14]); ctx.beginPath(); ctx.moveTo(170, 1050); ctx.lineTo(910, 1050); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = "#9d6f7f"; ctx.font = "25px Arial"; ctx.fillText(`Mã quà: ${currentGift.code}`, 540, 1120);
+      ctx.font = "italic 25px Georgia"; ctx.fillText("From your favorite person ♡", 540, 1185);
+      const link = document.createElement("a");
+      link.download = "phieu-qua-20-11.png";
+      link.href = c.toDataURL("image/png");
+      document.body.appendChild(link); link.click(); link.remove();
+    }
+    downloadBtn.addEventListener("click", downloadVoucher);
+    rerollBtn.addEventListener("click", rerollGift);
+    randomModeBtn.addEventListener("click", startRandomDraw);
+    manualModeBtn.addEventListener("click", chooseManualMode);
+    introForm.addEventListener("submit", event => {
+      event.preventDefault();
+      if (introPassword.value !== INTRO_PASSWORD) {
+        failedPasswordAttempts++;
+        introError.textContent = `Mật khẩu chưa đúng, em thử lại nhé ♥${failedPasswordAttempts >= 3 ? " Gợi ý: nói yeuanh đi............" : ""}`;
+        introPassword.setAttribute("aria-invalid", "true");
+        introPassword.select();
+        return;
+      }
+      introError.textContent = "";
+      introPassword.removeAttribute("aria-invalid");
+      introScreen.hidden = true;
+      document.querySelector(".layout").hidden = false;
+      giftGrid.querySelector("button")?.focus();
+    });
+    document.getElementById("receiverName").textContent = CONFIG.receiver;
+    buildBoxes();
+  </script>
+</body>
+</html>
